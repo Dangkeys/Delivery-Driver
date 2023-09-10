@@ -1,24 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Delivery : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-    [SerializeField] float steerSpeed = 0.1f;
-    [SerializeField] float moveSpeed = 0.01f;
-    void Start()
+    private void OnCollisionEnter2D(Collision2D other)
     {
+        Debug.Log("OUCH");
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        float steerAmount = Input.GetAxis("Horizontal") * steerSpeed * Time.deltaTime;
-        float moveAmount = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
-
-        transform.Rotate(0.0f, 0.0f, -steerAmount);
-        transform.Translate(0.0f, moveAmount, 0.0f);
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.CompareTag("Package"))
+        {
+            Debug.Log("Picked up package");
+        } else if(other.CompareTag("Customer"))
+            Debug.Log("Package Deliverd");
     }
 }
