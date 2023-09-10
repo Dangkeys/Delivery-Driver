@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 1285112075}
   - component: {fileID: 1285112074}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Car
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -245,6 +245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158c6b8043a0a924fa789e551ac13bc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  steerSpeed: 300
+  moveSpeed: 20
 --- !u!212 &1285112075
 SpriteRenderer:
   m_ObjectHideFlags: 0

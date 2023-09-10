@@ -5,6 +5,9 @@ using UnityEngine;
 public class Delivery : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    [SerializeField] float steerSpeed = 0.1f;
+    [SerializeField] float moveSpeed = 0.01f;
     void Start()
     {
     }
@@ -12,7 +15,10 @@ public class Delivery : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0.0f, 0.0f, 0.1f);
-        transform.Translate(0.0f, 0.01f, 0.0f);
+        float steerAmount = Input.GetAxis("Horizontal") * steerSpeed * Time.deltaTime;
+        float moveAmount = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
+
+        transform.Rotate(0.0f, 0.0f, -steerAmount);
+        transform.Translate(0.0f, moveAmount, 0.0f);
     }
 }
